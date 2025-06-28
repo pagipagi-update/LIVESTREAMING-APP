@@ -9,7 +9,7 @@ import { io } from 'socket.io-client';
 import { useParams } from 'react-router-dom'; // Untuk mendapatkan room ID dari URL jika diperlukan
 
 const OWNCAST_BASE_URL = 'https://stream.tivi.ahs.my.id/'; 
-const SOCKET_SERVER_URL = 'http://159.223.37.64:3001'; // GANTI INI DENGAN port server.js Anda
+const SOCKET_SERVER_URL = 'https://chat.ahs.my.id'; // GANTI INI DENGAN port server.js Anda
 
 // Fungsi pembantu untuk menentukan room ID berdasarkan path
 const getRoomIdFromPath = (path) => {
