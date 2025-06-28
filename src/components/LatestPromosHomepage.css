@@ -1,8 +1,16 @@
 /* src/components/LatestPromosHomepage.css */
 
+/*
+  Pastikan variabel CSS seperti --text-light, --primary-blue, dll.
+  sudah didefinisikan di file CSS global (misalnya index.css atau App.css)
+  atau di blok :root. Jika tidak, styling yang menggunakan variabel ini akan error.
+*/
+
 .latest-promos-homepage-section {
-  margin-top: 50px;
-  padding: 0 20px; /* Padding horizontal konsisten */
+  margin-top: 20px; /* Tambahkan sedikit margin atas default */
+  padding: 0 20px;   /* Padding horizontal konsisten */
+  width: 100%;       /* Pastikan lebar penuh */
+  box-sizing: border-box; /* Pastikan padding tidak menambah lebar */
 }
 
 .section-header-homepage {
@@ -10,64 +18,78 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
+  flex-wrap: wrap; /* Izinkan wrapping jika layar terlalu kecil */
+  gap: 10px; /* Jarak antar elemen header jika wrap */
 }
 
 .homepage-section-title {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--text-light);
+  color: var(--text-light, #f0f0f0); /* Tambahkan fallback color */
   margin: 0;
+  line-height: 1.2; /* Tingkatkan keterbacaan */
 }
 
 .view-all-button {
   background-color: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--text-gray);
+  border: 1px solid var(--border-color, #444); /* Tambahkan fallback */
+  color: var(--text-gray, #b0b0b0); /* Tambahkan fallback */
   padding: 8px 15px;
   border-radius: 8px;
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap; /* Pastikan tombol tidak pecah baris */
+  display: inline-flex; /* Untuk centering teks lebih baik */
+  align-items: center;
+  justify-content: center;
 }
 
 .view-all-button:hover {
-  background-color: var(--primary-blue);
-  color: var(--text-light);
-  border-color: var(--primary-blue);
+  background-color: var(--primary-blue, #007bff); /* Tambahkan fallback */
+  color: var(--text-light, #f0f0f0); /* Tambahkan fallback */
+  border-color: var(--primary-blue, #007bff); /* Tambahkan fallback */
 }
 
 .promos-grid-homepage {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Dua kolom atau lebih */
-  gap: 30px;
+  /* Gunakan minmax untuk responsivitas yang baik. min: 300px, max: 1fr */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px; /* Jarak antar kartu */
+  justify-content: center; /* Pusatkan item grid jika tidak memenuhi lebar penuh */
+  align-items: stretch; /* Memastikan kartu memiliki tinggi yang sama di baris yang sama */
 }
 
 .promo-card-homepage {
-  background-color: var(--card-background);
+  background-color: var(--card-background, #2a2a2a); /* Tambahkan fallback */
   border-radius: 12px;
-  overflow: hidden;
-  box-shadow: var(--soft-shadow);
+  overflow: hidden; /* Penting untuk clipping gambar atau konten yang keluar */
+  box-shadow: var(--soft-shadow, 0 4px 12px rgba(0, 0, 0, 0.2)); /* Tambahkan fallback */
   display: flex;
   flex-direction: column;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%; /* Penting agar semua kartu memiliki tinggi yang sama di grid */
 }
 
 .promo-card-homepage:hover {
   transform: translateY(-5px);
-  box-shadow: var(--deep-shadow);
+  box-shadow: var(--deep-shadow, 0 8px 20px rgba(0, 0, 0, 0.4)); /* Tambahkan fallback */
 }
 
 .promo-card-image-homepage {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
+  width: 100%; /* Lebar gambar mengikuti lebar parent */
+  height: 200px; /* Tinggi tetap untuk desktop */
+  object-fit: cover; /* **Menggunakan 'cover' untuk mengisi area sepenuhnya dan memotong jika perlu** */
+  display: block; /* Menghilangkan spasi ekstra di bawah gambar */
+  object-position: center; /* Memastikan fokus gambar di tengah */
+  /* Untuk memastikan tidak ada flicker saat gambar dimuat,
+     pastikan kamu memiliki placeholder atau lazy loading */
 }
 
 .promo-card-content-homepage {
   padding: 20px;
-  flex-grow: 1;
+  flex-grow: 1; /* Memastikan konten mengisi sisa ruang yang tersedia */
   display: flex;
   flex-direction: column;
 }
@@ -75,7 +97,7 @@
 .promo-card-title-homepage {
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--text-light);
+  color: var(--text-light, #f0f0f0); /* Tambahkan fallback */
   margin-top: 0;
   margin-bottom: 10px;
   line-height: 1.3;
@@ -83,19 +105,19 @@
 
 .promo-card-excerpt-homepage {
   font-size: 0.95rem;
-  color: var(--text-gray);
+  color: var(--text-gray, #b0b0b0); /* Tambahkan fallback */
   margin-bottom: 15px;
-  flex-grow: 1;
+  flex-grow: 1; /* Memastikan deskripsi mengisi ruang sebelum tombol */
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 3; /* Batasi hingga 3 baris */
   -webkit-box-orient: vertical;
 }
 
 .claim-button-homepage {
-  background-color: var(--primary-blue);
-  color: var(--text-light);
+  background-color: var(--primary-blue, #007bff); /* Tambahkan fallback */
+  color: var(--text-light, #f0f0f0); /* Tambahkan fallback */
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
@@ -105,29 +127,136 @@
   text-decoration: none;
   text-align: center;
   transition: background-color 0.2s ease;
-  align-self: flex-start;
+  align-self: flex-start; /* Mengatur tombol agar tidak meregang penuh lebar */
   white-space: nowrap;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: inline-block; /* Agar bisa pakai text-align dan padding */
 }
 
 .claim-button-homepage:hover {
-  background-color: var(--light-blue);
+  background-color: var(--light-blue, #3392ff); /* Tambahkan fallback */
 }
 
 /* --- Responsive Adjustments --- */
-/* Untuk layar lebih kecil dari 768px */
+
+/* Untuk Desktop (Ukuran default, tidak perlu media query terpisah kecuali ada override) */
+/* .promo-card-image-homepage sudah diatur height: 200px; */
+
+/* Untuk Layar Tablet (min-width: 769px dan max-width: 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .latest-promos-homepage-section {
+    padding: 0 25px; /* Padding sedikit lebih besar dari mobile */
+  }
+  .homepage-section-title {
+    font-size: 1.7rem;
+  }
+  .promos-grid-homepage {
+    /* Bisa tetap 2 kolom, atau sesuaikan minmax jika ingin 3 di tablet besar */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+  }
+  .promo-card-image-homepage {
+    height: 180px; /* Tinggi gambar untuk tablet */
+    /* object-fit: cover; tetap berlaku dari aturan di atas */
+  }
+  .promo-card-content-homepage {
+    padding: 18px;
+  }
+}
+
+/* Untuk Layar Mobile (max-width: 768px) */
 @media (max-width: 768px) {
   .latest-promos-homepage-section {
-    padding: 0 15px; /* Padding lebih kecil */
+    padding: 0 15px; /* Padding lebih kecil untuk mobile */
+  }
+  .view-all-button{
+    font-size: 0.6rem;
+    display: inline-flex; /* Untuk centering teks lebih baik */
+    align-items: center;
+    justify-content: center;  
+  }
+  .section-header-homepage {
+    flex-direction: column; /* Judul dan tombol di mobile bisa ke bawah */
+    align-items: flex-start; /* Rata kiri */
   }
   .homepage-section-title {
     font-size: 1.5rem;
+    margin-bottom: 15px; /* Beri jarak antara judul dan tombol */
   }
   .promos-grid-homepage {
     grid-template-columns: 1fr; /* Satu kolom di mobile */
     gap: 20px;
   }
   .promo-card-image-homepage {
-    height: 160px;
+    height: 120px; /* Tinggi gambar untuk mobile */
+    /* object-fit: cover; tetap berlaku dari aturan di atas */
+  }
+  .promo-card-content-homepage {
+    padding: 15px; /* Padding konten kartu lebih kecil di mobile */
+  }
+  .promo-card-title-homepage {
+    font-size: 1.2rem;
+  }
+  .promo-card-excerpt-homepage {
+    font-size: 0.9rem;
+    display: none;
+  }
+  .claim-button-homepage {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 414px) {
+  .latest-promos-homepage-section {
+    padding: 0 15px; /* Padding lebih kecil untuk mobile */
+  }
+  .section-header-homepage {
+    flex-direction: column; /* Judul dan tombol di mobile bisa ke bawah */
+    align-items: flex-start; /* Rata kiri */
+  }
+  .homepage-section-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px; /* Beri jarak antara judul dan tombol */
+  }
+  .promos-grid-homepage {
+    grid-template-columns: 1fr; /* Satu kolom di mobile */
+    gap: 20px;
+  }
+  .promo-card-image-homepage {
+    height: 100px; /* Tinggi gambar untuk mobile */
+    /* object-fit: cover; tetap berlaku dari aturan di atas */
+  }
+  .promo-card-content-homepage {
+    padding: 15px; /* Padding konten kartu lebih kecil di mobile */
+  }
+  .promo-card-title-homepage {
+    font-size: 0.9rem;
+  }
+  .promo-card-excerpt-homepage {
+    font-size: 0.9rem;
+    display: none;
+  }
+  .claim-button-homepage {
+    padding: 8px 10px;
+    font-size: 0.7rem;
+  }
+}
+
+/* Optional: Untuk Layar Sangat Besar (misal: > 1200px) */
+@media (min-width: 1200px) {
+  .latest-promos-homepage-section {
+    padding: 0 40px;
+  }
+  .promos-grid-homepage {
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 40px;
+  }
+  .promo-card-excerpt-homepage {
+    font-size: 0.9rem;
+    display: none;
+  }
+  .promo-card-image-homepage {
+    height: 240px; /* Sedikit lebih tinggi untuk layar sangat besar */
   }
 }

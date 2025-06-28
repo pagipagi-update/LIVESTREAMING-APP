@@ -1,111 +1,252 @@
 /* src/components/Footer.css */
 
+/*
+  Pastikan variabel CSS sudah didefinisikan di file CSS global (misalnya index.css atau App.css)
+  atau di blok :root. Jika tidak, styling yang menggunakan variabel ini akan error.
+  Saya akan menambahkan fallback values.
+*/
+:root {
+  --sidebar-dark: #1a1a1a; /* Contoh warna gelap untuk sidebar/footer */
+  --text-gray: #b0b0b0;    /* Contoh warna abu-abu untuk teks */
+  --text-light: #f0f0f0;   /* Contoh warna terang untuk teks */
+  --border-color: #444;    /* Contoh warna border umum */
+  --accent-red: #e74c3c;   /* Contoh warna aksen merah */
+  --footer-bg: var(--sidebar-dark); /* Menggunakan variabel dari sidebar jika sama */
+  --border-color-dark: #222; /* Border lebih gelap */
+}
+
+
 .footer-container {
-    background-color: var(--sidebar-dark); /* Warna gelap untuk footer */
-    color: var(--text-gray);
-    padding: 40px 20px 20px; /* Padding atas, samping, bawah */
-    border-top: 1px solid var(--border-color); /* Garis pemisah dari konten atas */
-    margin-top: 50px; /* Jarak dari section terakhir di atasnya */
+  background-color: var(--footer-bg, #1a1a1a); /* Warna gelap untuk footer, pakai fallback */
+  color: var(--text-gray, #b0b0b0); /* Warna teks umum, pakai fallback */
+  padding: 40px 20px 20px; /* Padding atas, samping, bawah */
+  border-top: 1px solid var(--border-color, #444); /* Garis pemisah dari konten atas, pakai fallback */
+  margin-top: 50px; /* Jarak dari section terakhir di atasnya */
+  box-sizing: border-box; /* Pastikan padding tidak menambah lebar */
+  width: 100%; /* Pastikan footer mengambil lebar penuh */
+}
+
+/* --- BAGIAN ATAS FOOTER: Logo, Lisensi, Sertifikasi (dari foto baru) --- */
+.footer-top-section {
+  display: flex;
+  justify-content: space-between; /* Memisahkan kiri dan kanan */
+  align-items: center; /* Pusatkan vertikal */
+  max-width: 1500px; /* Gunakan max-width yang sama dengan footer-content lama */
+  margin: 0 auto; /* Pusatkan di halaman */
+  padding-bottom: 20px; /* Padding bawah untuk memisahkan dari konten lain */
+  flex-wrap: wrap; /* Izinkan wrapping di layar kecil */
+  gap: 20px; /* Jarak antar kolom utama */
+  border-bottom: 1px solid var(--border-color-dark, #222); /* Garis pemisah bawah */
+  margin-bottom: 30px; /* Jarak sebelum main content */
+}
+
+.footer-logo-licenses {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Jarak antara logo Bola88 dan info lisensi */
+  flex-wrap: wrap; /* Izinkan wrap jika layar sangat sempit */
+}
+
+.footer-main-logo {
+  height: 40px; /* Tinggi logo Bola88, sesuaikan */
+  width: auto;
+  display: block;
+}
+
+
+.license-text {
+  font-size: 0.9rem;
+  color: var(--text-gray, #b0b0b0);
+}
+
+.license-logo {
+  height: 25px; /* Tinggi logo BMM Testlabs, sesuaikan */
+  width: auto;
+  display: block;
+}
+.footer-middle-section{
+  text-align: justify;
+  margin: 20px 0; /* Jarak atas dan bawah */
+}
+
+.footer-cert-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Jarak antar ikon sertifikasi */
+  flex-wrap: wrap; /* Izinkan wrap */
+  justify-content: flex-end; /* Ratakan ke kanan */
+}
+
+.cert-icon {
+  height: 30px; /* Tinggi ikon sertifikasi, sesuaikan */
+  width: auto;
+  display: block;
+  opacity: 0.8; /* Sedikit transparan seperti di gambar */
+  transition: opacity 0.2s ease;
+}
+
+.cert-icon:hover {
+  opacity: 1; /* Efek hover */
+}
+
+
+/* --- FOOTER MAIN CONTENT (dari CSS lama Anda) --- */
+.footer-main-content { /* Nama kelas baru untuk membedakan dari footer-content lama */
+  display: flex;
+  justify-content: space-between; /* Menyebarkan kolom-kolom */
+  flex-wrap: wrap; /* Mengizinkan wrap di layar kecil */
+  gap: 100px; /* Jarak antar kolom */
+  max-width: 1500px; /* Batasi lebar konten footer */
+  margin: 0 auto; /* Pusatkan konten footer */
+  margin-bottom: 30px; /* Jarak sebelum bagian footer-bottom */
+}
+
+.footer-brand,
+.footer-links,
+.footer-social {
+  flex: 1; /* Fleksibel untuk pertumbuhan */
+  min-width: 200px; /* Lebar minimum per kolom */
+}
+
+.footer-brand .logo-text-footer {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-light, #f0f0f0);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.footer-brand .footer-tagline {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer-links h4,
+.footer-social h4 {
+  font-size: 1.1rem;
+  color: var(--text-light, #f0f0f0);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: var(--text-gray, #b0b0b0);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent-red, #e74c3c); /* Warna aksen saat hover */
+}
+
+.social-icons-footer {
+  display: flex;
+  gap: 15px; /* Jarak antar ikon sosial media */
+}
+
+.social-icons-footer .footer-social-icon { /* Styling untuk ikon react-icons */
+  color: var(--text-gray, #b0b0b0);
+  font-size: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+.social-icons-footer a:hover .footer-social-icon {
+  color: var(--accent-red, #e74c3c); /* Warna aksen saat hover */
+}
+
+/* --- FOOTER BOTTOM (dari CSS lama Anda) --- */
+.footer-bottom {
+  max-width: 1500px; /* Sesuaikan dengan max-width konten atas */
+  margin: 0 auto; /* Pusatkan */
+  text-align: center;
+  border-top: 1px solid var(--border-color-dark, #2a2a2a); /* Garis pemisah bawah, pakai fallback */
+  padding-top: 20px;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--text-gray, #b0b0b0);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) { /* Untuk tablet dan layar yang lebih kecil dari desktop */
+  .footer-main-content {
+    gap: 50px; /* Kurangi gap untuk layar menengah */
   }
-  
-  .footer-content {
-    display: flex;
-    justify-content: space-around; /* Menyebarkan kolom-kolom */
-    flex-wrap: wrap; /* Mengizinkan wrap di layar kecil */
-    gap: 30px; /* Jarak antar kolom */
-    max-width: 1200px; /* Batasi lebar konten footer */
-    margin: 0 auto; /* Pusatkan konten footer */
-    margin-bottom: 30px; /* Jarak sebelum bagian footer-bottom */
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 30px 15px 15px; /* Padding lebih kecil untuk mobile */
   }
-  
+  .footer-top-section {
+    flex-direction: column; /* Stack vertikal di mobile */
+    align-items: flex-start; /* Ratakan kiri */
+    gap: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+  }
+  .footer-logo-licenses {
+    flex-direction: column; /* Susun logo dan lisensi vertikal di mobile */
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .footer-main-logo {
+    height: 35px; /* Ukuran logo utama lebih kecil di mobile */
+  }
+  .license-logo {
+    height: 20px; /* Ukuran logo lisensi lebih kecil di mobile */
+  }
+  .footer-cert-icons {
+    justify-content: flex-start; /* Ratakan kiri di mobile */
+    gap: 10px;
+  }
+  .cert-icon {
+    height: 25px; /* Ukuran ikon sertifikasi lebih kecil di mobile */
+  }
+
+  .footer-main-content {
+    flex-direction: column;
+    align-items: center; /* Pusatkan kolom di mobile */
+    text-align: center; /* Pusatkan teks di mobile */
+    gap: 20px; /* Jarak antar kolom di mobile */
+    margin-bottom: 20px;
+  }
   .footer-brand,
   .footer-links,
   .footer-social {
-    flex: 1; /* Fleksibel untuk pertumbuhan */
-    min-width: 200px; /* Lebar minimum per kolom */
+    min-width: unset; /* Reset min-width */
+    width: 100%; /* Ambil lebar penuh */
+    margin-bottom: 0; /* Reset margin bottom */
   }
-  
-  .footer-brand .logo-text-footer {
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--text-light);
-    display: block;
-    margin-bottom: 10px;
+  .social-icons-footer {
+    justify-content: center; /* Pusatkan ikon sosial media */
   }
-  
-  .footer-brand .footer-tagline {
-    font-size: 0.9rem;
-    line-height: 1.5;
+  .footer-bottom {
+    padding-top: 15px;
+    margin-top: 15px;
   }
-  
+}
+
+/* Tambahan: Untuk layar sangat kecil */
+@media (max-width: 480px) {
+  .footer-main-content {
+    gap: 15px;
+  }
   .footer-links h4,
   .footer-social h4 {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    margin-bottom: 15px;
-    font-weight: 600;
+    margin-bottom: 10px;
   }
-  
-  .footer-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
   .footer-links li {
-    margin-bottom: 8px;
+    margin-bottom: 5px;
   }
-  
-  .footer-links a {
-    color: var(--text-gray);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.2s ease;
-  }
-  
-  .footer-links a:hover {
-    color: var(--accent-red); /* Warna aksen saat hover */
-  }
-  
-  .social-icons-footer {
-    display: flex;
-    gap: 15px; /* Jarak antar ikon sosial media */
-  }
-  
-  .social-icons-footer .footer-social-icon { /* Styling untuk ikon react-icons */
-    color: var(--text-gray);
-    font-size: 1.5rem;
-    transition: color 0.2s ease;
-  }
-  
-  .social-icons-footer a:hover .footer-social-icon {
-    color: var(--accent-red); /* Warna aksen saat hover */
-  }
-  
-  .footer-bottom {
-    text-align: center;
-    border-top: 1px solid #2a2a2a; /* Garis pemisah bawah */
-    padding-top: 20px;
-    margin-top: 20px;
-    font-size: 0.85rem;
-    color: var(--text-gray);
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .footer-content {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .footer-brand,
-    .footer-links,
-    .footer-social {
-      min-width: unset;
-      width: 100%;
-      margin-bottom: 20px;
-    }
-    .social-icons-footer {
-      justify-content: center;
-    }
-  }
+}

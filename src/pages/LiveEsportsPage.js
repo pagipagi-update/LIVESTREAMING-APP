@@ -1,79 +1,137 @@
 // src/pages/LiveEsportsPage.js
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react'; 
 import ChatBox from '../components/ChatBox';
-import './PageStyles.css'; // Styling umum halaman
+import './PageStyles.css'; 
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa'; 
 import { FiLink, FiMessageCircle } from 'react-icons/fi'; 
-import { promoArticles } from '../data/promoData'; // Data promo untuk bagian bawah
+import { promoArticles } from '../data/promoData'; 
+import { io } from 'socket.io-client'; 
 
-const OWNCAST_BASE_URL = 'https://stream.ahs.my.id/'; 
+const OWNCAST_BASE_URL = 'https://stream.tivi.ahs.my.id/'; 
+const SOCKET_SERVER_URL = 'http://159.223.37.64:3001'; // GANTI INI DENGAN port server.js Anda
+
+// Fungsi pembantu untuk menentukan room ID berdasarkan path
+const getRoomIdFromPath = (path) => {
+    switch (path) {
+        case '/live-sports': return 'sports';
+        case '/live-esports': return 'esports'; // Room ID untuk Esports
+        case '/live-slots': return 'slots';
+        case '/live-togel': return 'togel';
+        default: return 'general'; // Default room jika tidak ada yang cocok
+    }
+}
 
 function LiveEsportsPage() {
   const [messages, setMessages] = useState([]);
-  const ws = useRef(null);
+  const socket = useRef(null); 
+  const [chatUsername, setChatUsername] = useState(''); 
+  const [isSocketConnected, setIsSocketConnected] = useState(false); 
 
-  const handleSendMessage = (username, messageText) => {
-    if (ws.current && ws.current.readyState === WebSocket.OPEN) {
-      const message = {
-        type: 'CHAT',
-        author: username,
-        body: messageText,
-      };
-      ws.current.send(JSON.stringify(message));
+  // Ambil room ID untuk halaman ini
+  const roomId = getRoomIdFromPath(window.location.pathname); 
+
+  const handleConnectChat = (username) => {
+    setChatUsername(username);
+  };
+
+  const handleSendMessage = (user, messageText) => { 
+    if (socket.current && socket.current.connected) { 
+      socket.current.emit('chat message', { user: user, text: messageText, roomId: roomId }); // Emit dengan roomId
     } else {
-      console.warn("WebSocket chat tidak terhubung. Pesan Anda hanya akan terlihat secara lokal.");
+      console.warn("Socket.IO tidak terhubung. Pesan Anda hanya akan terlihat secara lokal.");
       setMessages((prevMessages) => [
         ...prevMessages,
-        { id: Date.now(), user: `${username} (Anda - Offline)`, text: messageText }, 
+        { id: Date.now(), user: `${user} (Anda - Offline)`, text: messageText }, 
       ]);
     }
   };
 
   useEffect(() => {
-    ws.current = new WebSocket(`${OWNCAST_BASE_URL}/ws`);
+    if (chatUsername) { 
+      socket.current = io(SOCKET_SERVER_URL, {
+        auth: { 
+          username: chatUsername,
+          roomId: roomId // Kirim roomId melalui handshake auth
+        }
+      });
 
-    ws.current.onopen = () => {
-      console.log('WebSocket connection established for Esports.');
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { id: Date.now(), user: 'System', text: 'Terhubung ke Live Chat Owncast.' },
-      ]);
-    };
-
-    ws.current.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      if (data.type === 'CHAT') {
+      socket.current.on('connect', () => {
+        console.log(`Socket.IO connected to room ${roomId}:`, socket.current.id);
+        setIsSocketConnected(true); 
         setMessages((prevMessages) => [
           ...prevMessages,
-          { id: data.id, user: data.author, text: data.body },
+          { id: Date.now(), user: 'System', text: `Anda terhubung sebagai ${chatUsername} di room ${roomId}.` },
         ]);
-      } else if (data.type === 'PONG') {
-        // console.log('Received PONG');
-      }
-    };
+      });
 
-    ws.current.onclose = () => {
-      console.log('WebSocket connection closed for Esports.');
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { id: Date.now(), user: 'System', text: 'Koneksi chat terputus. Mencoba menghubungkan kembali...' },
-      ]);
-    };
+      socket.current.on('disconnect', () => {
+        console.log('Socket.IO disconnected.');
+        setIsSocketConnected(false); 
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { id: Date.now(), user: 'System', text: 'Koneksi chat terputus. Mencoba menghubungkan kembali...' },
+        ]);
+      });
 
-    ws.current.onerror = (error) => {
-      console.error('WebSocket error for Esports:', error);
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { id: Date.now(), user: 'System', text: 'Terjadi kesalahan pada chat. Coba lagi nanti.' },
-      ]);
-    };
+      socket.current.on('connect_error', (error) => {
+          console.error('Socket.IO connection error:', error);
+          setIsSocketConnected(false); 
+          setMessages((prevMessages) => [
+              ...prevMessages,
+              { id: Date.now(), user: 'System', text: `Gagal terhubung ke chat: ${error.message}. Coba lagi.` },
+          ]);
+      });
 
-    return () => {
-      if (ws.current) {
-        ws.current.close();
-      }
-    };
-  }, []);
+      // Menerima histori chat dari server (berisi pesan sambutan room)
+      socket.current.on('chat history', (history) => {
+          setMessages(history.map(msg => ({ 
+              id: msg.id, 
+              user: msg.username, 
+              text: msg.text 
+          })));
+      });
+      
+      socket.current.on('chat message', (msg) => { 
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { 
+            id: msg.id || Date.now(), 
+            user: msg.username, 
+            text: msg.text 
+          }, 
+        ]);
+      });
+      
+      socket.current.on('system message', (text) => {
+          setMessages((prevMessages) => [
+              ...prevMessages,
+              { id: Date.now(), user: 'System', text: text },
+          ]);
+      });
+
+      socket.current.on('message deleted', (messageId) => {
+          setMessages((prevMessages) => prevMessages.filter(msg => msg.id !== messageId));
+          setMessages((prevMessages) => [
+              ...prevMessages,
+              { id: Date.Now(), user: 'System', text: `Pesan dengan ID ${messageId} telah dihapus.` },
+          ]);
+      });
+      socket.current.on('user banned', (username) => {
+          setMessages((prevMessages) => [
+              ...prevMessages,
+              { id: Date.Now(), user: 'System', text: `Pengguna ${username} telah diban.` },
+          ]);
+      });
+
+      return () => {
+        if (socket.current) {
+          socket.current.disconnect(); 
+          setIsSocketConnected(false);
+          console.log('Socket.IO cleaned up.');
+        }
+      };
+    }
+  }, [chatUsername, roomId]); 
 
   const alternativeLinks = [
     { text: 'Link Alternatif', icon: <FiLink />, url: 'https://linkalternatif.com', isPrimary: true }, 
@@ -82,7 +140,8 @@ function LiveEsportsPage() {
     { text: 'Livechat Bola88', icon: <FiMessageCircle />, url: 'https://livechat.bola88.com', isPrimary: false }, 
   ];
 
-  const streamTags = ['Dota 2', 'Esports', 'Tournament', 'Live Match', 'English']; 
+  // DATA DUMMY UNTUK TAGS ESPORTS
+  const streamTags = ['Dota 2', 'Esports', 'Tournament', 'Pro League', 'English']; 
   const latestPromos = promoArticles.slice(0, 2);
 
   return (
@@ -91,7 +150,7 @@ function LiveEsportsPage() {
         <div className="video-player-and-info-frame">
           <div className="video-placeholder"> 
             <iframe
-              src={`${OWNCAST_BASE_URL}/embed/video`}
+              src={`${OWNCAST_BASE_URL}/embed/video`} 
               title="Owncast Live Esports Stream"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
@@ -102,7 +161,7 @@ function LiveEsportsPage() {
           <div className="stream-info">
               <div className="stream-info-header">
                   <img 
-                      src={`${OWNCAST_BASE_URL}/logo`} /* Avatar Esports */
+                      src="https://via.placeholder.com/50/1a1a1a/FFFFFF?text=E" /* Avatar Esports */
                       alt="Profile Avatar"
                       className="streamer-avatar"
                   />
@@ -110,11 +169,11 @@ function LiveEsportsPage() {
                       <h3 className="stream-title-display">
                           Livestreaming Turnamen Esports Hari ini
                       </h3>
-                      <p className="streamer-name">Esports Official</p>
+                      <p className="streamer-name">Esports Pro Official</p>
                   </div>
               </div>
               <p className="stream-description-display">
-                  Saksikan pertandingan esports paling seru dari seluruh dunia! Dukung tim favoritmu dalam turnamen besar.
+                  Saksikan pertandingan esports paling seru dari seluruh dunia! Dukung tim favoritmu dalam liga profesional.
               </p>
               <div className="stream-tags-container">
                   {streamTags.map((tag, index) => (
@@ -125,41 +184,46 @@ function LiveEsportsPage() {
               </div>
           </div>
         </div> 
-
-        <ChatBox messages={messages} onSendMessage={handleSendMessage} />
-      </div>
-      
-      <div className="alternative-links-section">
-        {alternativeLinks.map((link, index) => (
-          <a
-            key={index}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`alt-link-button ${link.isPrimary ? 'primary' : ''}`}
-          >
-            {link.icon}
-            <span>{link.text}</span>
-          </a>
-        ))}
-      </div>
-
-      <div className="promos-below-links-section">
-        <h4 className="section-title-promos">Promo Terbaru</h4>
-        <div className="promos-grid-below-links">
-          {latestPromos.map((promo) => (
-            <div key={promo.id} className="promo-card-below-links">
-              <img src={promo.imageUrl} alt={promo.title} className="promo-image-below-links" />
-              <div className="promo-content-below-links">
-                <h5 className="promo-title-below-links">{promo.title}</h5>
-                <p className="promo-excerpt-below-links">{promo.excerpt}</p>
-                <a href="/promo-terbaru" className="promo-button-below-links">Klaim!</a>
-              </div>
-            </div>
+        <ChatBox 
+            messages={messages} 
+            onSendMessage={handleSendMessage} 
+            onConnectChat={handleConnectChat} 
+            isSocketConnected={isSocketConnected} 
+        />
+          
+        <div className="alternative-links-section">
+          {alternativeLinks.map((link, index) => (
+            <a
+              key={index}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`alt-link-button ${link.isPrimary ? 'primary' : ''}`}
+            >
+              {link.icon}
+              <span>{link.text}</span>
+            </a>
           ))}
         </div>
-      </div>
-      
+
+        <div className="promos-below-links-section">
+          <h4 className="section-title-promos">Promo Terbaru</h4>
+          <div className="promos-grid-below-links">
+            {latestPromos.map((promo) => (
+              <div key={promo.id} className="promo-card-below-links">
+                <img src={promo.imageUrl} alt={promo.title} className="promo-image-below-links" />
+                <div className="promo-content-below-links">
+                  <h5 className="promo-title-below-links">{promo.title}</h5>
+                  <p className="promo-excerpt-below-links">{promo.excerpt}</p>
+                  <a href={promo.link} className="promo-button-below-links">Klaim!</a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        
+      </div> 
     </div>
   );
 }

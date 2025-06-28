@@ -33,7 +33,6 @@ function QuickAccessMenu() {
 
   return (
     <section className="quick-access-section">
-      <h2 className="quick-access-title">Browse</h2> {/* UBAH INI: Judul diubah menjadi "Browse" */}
       <div className="quick-access-menu-container">
         {menuItems.map((item, index) => (
           <a

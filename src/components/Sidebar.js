@@ -27,11 +27,16 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
 
   return (
     <aside className={`sidebar-container ${isSidebarOpen ? 'open' : 'closed'}`}>
-      <div className="sidebar-header">
-        <span className="logo-small">Bola88</span>
-        {/* Hapus baris ini: */}
-        {/* <FaTimes className="sidebar-close-button" onClick={toggleSidebar} /> */}
-      </div>
+    <div className="sidebar-header">
+      {/* Menggunakan tag <img> untuk logo */}
+      <img
+        src="/logo.png" // Path relatif dari folder 'public' (untuk Next.js/CRA)
+        // src={Bola88Logo} // Gunakan ini jika Anda mengimport gambar dari src/assets
+        alt="Logo" // Atribut alt penting untuk SEO dan aksesibilitas
+        className="logo-image" // Tambahkan kelas CSS untuk styling
+      />
+      {/* Tombol close sudah Anda hapus, jadi tidak perlu di sini */}
+    </div>
 
       <nav className="sidebar-nav">
         <ul>
@@ -53,7 +58,7 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
 
       <div className="sidebar-banner-area">
         <img
-          src="https://file.ahs.my.id/-tJiWgCY32J"
+          src="https://file.ahs.my.id/-AboobpmBTQ"
           alt="Promotion Banner"
           className="promo-banner"
         />

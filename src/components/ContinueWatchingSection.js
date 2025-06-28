@@ -15,25 +15,25 @@ function ContinueWatchingSection() {
     {
       title: 'Live Sports',
       streamer: 'Football Match',
-      staticThumbnail: 'https://file.ahs.my.id/-spLWwjB9pJ', 
+      staticThumbnail: 'https://file.ahs.my.id/-funGBWh4JG', 
       path: '/live-sports',
     },
     {
       title: 'Live Esports',
       streamer: 'Dota 2 Tournament',
-      staticThumbnail: 'https://file.ahs.my.id/-uHsBn7G4oX',
+      staticThumbnail: 'https://file.ahs.my.id/-qwfYNmkR3n',
       path: '/live-esports',
     },
     {
       title: 'Live Slots',
       streamer: 'Big Win Mania',
-      staticThumbnail: 'https://file.ahs.my.id/-32YZZ2UUcB',
+      staticThumbnail: 'https://file.ahs.my.id/-prtNWyQVhZ',
       path: '/live-slots',
     },
     {
       title: 'Live Togel',
       streamer: 'HK Pool Draw',
-      staticThumbnail: 'https://file.ahs.my.id/-gnrWQ8SpCk',
+      staticThumbnail: 'https://file.ahs.my.id/-2RovViNBUm',
       path: '/live-togel',
     },
   ];

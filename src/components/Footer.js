@@ -1,40 +1,37 @@
 // src/components/Footer.js
 import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa'; // Impor ikon sosial media
+// Hapus import ikon sosial media jika tidak lagi digunakan di bagian ini dari footer.
+// import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa'; // Ini mungkin tidak lagi diperlukan jika sosial media dihilangkan
 import './Footer.css'; // File CSS baru untuk Footer
 
 function Footer() {
   return (
     <footer className="footer-container">
-      <div className="footer-content">
-        <div className="footer-brand">
-          <span className="logo-text-footer">Bola88</span>
-          <p className="footer-tagline">Nikmati sensasi live streaming terbaik!</p>
+      {/* BAGIAN ATAS FOOTER: Sesuai dengan gambar yang Anda berikan (Logo, Lisensi, Sertifikasi) */}
+      <div className="footer-top-section">
+        {/* Bagian Kiri: Logo Utama + Lisensi */}
+        <div className="footer-logo-licenses">
+          <img
+            src="/logo.png" // PASTIKAN PATH INI BENAR (relative to public folder)
+            alt="Bola88 Logo"
+            className="footer-main-logo"
+          />
+
         </div>
 
-        <div className="footer-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="/about-us">About Us</a></li> {/* Placeholder link */}
-            <li><a href="/contact">Contact</a></li> {/* Placeholder link */}
-            <li><a href="/privacy-policy">Privacy Policy</a></li> {/* Placeholder link */}
-            <li><a href="/terms">Terms & Conditions</a></li> {/* Placeholder link */}
-          </ul>
-        </div>
-
-        <div className="footer-social">
-          <h4>Follow Us</h4>
-          <div className="social-icons-footer">
-            {/* Menggunakan ikon dari react-icons */}
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook className="footer-social-icon"/></a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter className="footer-social-icon"/></a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram className="footer-social-icon"/></a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><FaYoutube className="footer-social-icon"/></a>
-          </div>
+        {/* Bagian Kanan: Ikon Sertifikasi */}
+        <div className="footer-cert-icons">
+          <img src="/responsible.png" alt="18+ Only" className="cert-icon" />
         </div>
       </div>
+    <div class="footer-middle-section">
+        <h2>BOLA88 Live – PLATFORM LIVESTREAM OLAHRAGA 24 JAM</h2>
+          <p>Bola88 Live adalah platform live streaming online 24 jam yang menayangkan berbagai pertandingan olahraga dunia dengan kualitas HD jernih tanpa buffering. Nikmati siaran langsung sepak bola, basket, MotoGP, dan olahraga lainnya kapan saja dan di mana saja melalui server cepat dan stabil. Bola88 Live menghadirkan pengalaman menonton terbaik dengan akses mudah serta jadwal pertandingan yang selalu update setiap hari. Saksikan semua keseruannya hanya di Bola88 Live, platform livestream andalan para penggemar olahraga di Indonesia.</p>
+          <p>Bergabung sekarang dan rasakan serunya menonton pertandingan favoritmu secara live tanpa hambatan. Bola88 Live siap menjadi teman setia kamu untuk menikmati setiap momen olahraga dengan nyaman dan praktis di mana pun kamu berada.</p>
+        </div>
+      {/* FOOTER BOTTOM: Bagian Hak Cipta, tetap dipertahankan dari kode Anda */}
       <div className="footer-bottom">
-        <p>© 2025 Bola88. All rights reserved.</p>
+        <p>© 2025 Bola88 Live. All rights reserved.</p>
       </div>
     </footer>
   );

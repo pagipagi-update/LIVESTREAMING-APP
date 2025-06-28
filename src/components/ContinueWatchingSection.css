@@ -1,6 +1,6 @@
 /* src/components/ContinueWatchingSection.css */
 .live-now-section { 
-    margin-top: 40px;
+    margin-top: 5px;
     padding: 0 20px;
     display: flex;
     flex-direction: column;
@@ -81,16 +81,16 @@
   @media (max-width: 768px) {
       .live-now-section {
           padding: 0 15px;
-          margin-top: 30px;
+          margin-top: 0px;
       }
       .section-title {
-          font-size: 1.5rem;
+          font-size: 1.2rem;
       }
       .section-header {
           flex-direction: column; /* Judul dan tombol menumpuk */
           gap: 10px;
-          align-items: center;
-          text-align: center;
+          align-items: left; /* Rata kiri untuk mobile */
+          text-align: left; /* Rata kiri untuk mobile */
           max-width: 100%;
       }
       .watch-now-button {
@@ -98,8 +98,14 @@
           min-width: unset;
           font-size: 1rem;
       }
+      .card-title{
+        font-size: 0.8rem; /* UBAH INI: Ukuran teks judul lebih kecil di mobile */
+      }
+      .card-streamer {
+        display: none; /* Sembunyikan nama streamer di mobile */
+      }
       .video-cards-grid {
-          grid-template-columns: 1fr; /* UBAH INI: 1 kolom di mobile */
+          grid-template-columns: repeat(2, 1fr); /* UBAH INI: 1 kolom di mobile */
           max-width: 100%; /* Ambil lebar penuh */
           gap: 20px;
       }
@@ -108,8 +114,13 @@
   /* Untuk layar sangat kecil (<480px) - TETAP 1 KOLOM */
   @media (max-width: 480px) {
       .video-cards-grid {
-          grid-template-columns: 1fr; /* TETAP 1 kolom di ponsel sangat kecil */
+          grid-template-columns: repeat(2, 1fr); /* TETAP 1 kolom di ponsel sangat kecil */
           max-width: 100%;
           gap: 15px;
       }
+      .card-thumbnail {
+          height: 100px; /* UBAH INI: Tinggi gambar lebih kecil di ponsel sangat kecil */
+          object-fit: cover; /* Tetap menjaga proporsi gambar */
+      }
+
   }

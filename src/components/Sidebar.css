@@ -16,6 +16,19 @@
   transition: transform 0.3s ease-in-out;
   transform: translateX(0); /* Default: terbuka */
 }
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Ini yang membuat item di dalamnya horizontal tengah */
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border-color, #333);
+}
+.logo-image {
+  max-width: 120px; /* Lebar maksimum logo */
+  height: auto; /* Tinggi akan menyesuaikan secara proporsional */
+  display: block; /* Menghilangkan spasi ekstra di bawah gambar */
+  transition: max-width 0.3s ease; /* Transisi untuk responsivitas yang lebih halus */
+}
 
 .sidebar-container.closed {
   transform: translateX(-100%);
@@ -175,6 +188,10 @@
   .sidebar-container.open {
     transform: translateX(0);
   }
+  .logo-image {
+    max-width: 100px; /* Ukuran lebih kecil untuk mobile */
+  }
+
 
   /* sidebar-close-button tidak lagi ada di sini, sudah dihapus */
   /*
@@ -184,6 +201,10 @@
   */
 
   /* main-content-wrapper.sidebar-open sudah diatur di App.css agar tidak mendorong */
+}
+.sidebar.collapsed .logo-image {
+  max-width: 80px; /* Ukuran lebih kecil saat sidebar kolaps */
+  opacity: 0.8;
 }
 
 @media (max-width: 480px) {

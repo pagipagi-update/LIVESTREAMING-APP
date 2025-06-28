@@ -6,7 +6,7 @@ export const promoArticles = [
       title: 'Bonus Deposit Member Baru Hingga 100%!',
       date: 'Valid hingga 31 Desember 2025',
       excerpt: 'Dapatkan bonus deposit 100% untuk member baru. Klaim sekarang dan gandakan kemenangan Anda!',
-      imageUrl: 'https://premicloud.net/banner/image/promotion/UBO_KOIN88%20BANNER%20SPORT_MenuPromosi.webp', 
+      imageUrl: 'https://file.ahs.my.id/-F57N738heV', 
       link: '#/promo/bonus-new-member' 
     },
     {

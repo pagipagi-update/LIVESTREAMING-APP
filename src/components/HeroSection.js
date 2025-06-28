@@ -7,12 +7,12 @@ function HeroSection() {
   // Data untuk setiap slide banner dengan URL yang Anda berikan
   const banners = [
     {
-      imageUrl: 'https://premicloud.net/banner/image/sports/ALL%20UBO_Top%20Award%20Fifa%20Club%202025_SLIDER%20.webp',
+      imageUrl: 'https://file.ahs.my.id/-mVB4XEnEBC',
       altText: 'Promosi FIFA Club 2025 Bola88',
       linkUrl: '/live-sports', // Arahkan ke halaman Live Sports
     },
     {
-      imageUrl: 'https://premicloud.net/banner/image/promotion/all%20ubo_Top%20Award%20AFF%20U-23%20Championship%202025_slider.webp?=v2',
+      imageUrl: 'https://file.ahs.my.id/-F57N738heV',
       altText: 'Event AFF U-23 Championship 2025 Bola88',
       linkUrl: '/live-esports', // Arahkan ke halaman Live Esports
     },

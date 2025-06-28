@@ -1,7 +1,7 @@
 /* src/components/QuickAccessMenu.css */
 
 .quick-access-section {
-  margin-top: 50px;
+  margin-top: -40px;
   padding: 0 20px; /* Padding horizontal konsisten */
 }
 
@@ -89,12 +89,12 @@
   }
   .quick-access-button {
     padding: 12px 15px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     min-width: unset; /* Hapus min-width */
-    max-width: calc(50% - 7.5px); /* Dua tombol per baris di mobile */
+    max-width: calc(50% - 6px); /* Dua tombol per baris di mobile */
   }
   .quick-access-button .menu-icon {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 

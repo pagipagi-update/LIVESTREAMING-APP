@@ -50,7 +50,7 @@
 /* KOTAK GABUNGAN: Video dan Info (kini anak langsung dari live-content-layout) */
 .video-player-and-info-frame {
   flex-grow: 1; /* Biarkan video frame tumbuh */
-  min-width: 450px; /* Tetapkan min-width untuk desktop */
+  min-width: 400px; /* Tetapkan min-width untuk desktop */
   max-width: calc(100% - 350px - 30px); /* Tetapkan max-width untuk desktop */
   
   background-color: var(--card-background);
@@ -67,7 +67,7 @@
   position: relative; 
   width: 100%;
   padding-bottom: 56.25%; /* Rasio aspek 16:9 */
-  background-color: #000;
+  background-color: #000000;
   overflow: hidden; 
   display: flex;
   justify-content: center;
@@ -366,7 +366,7 @@
 
 
 /* --- Responsive Adjustments --- */
-@media (max-width: 992px) {
+@media (max-width: 1120px) {
   .page-container {
     padding: 15px 20px;
     gap: 20px;
@@ -468,7 +468,7 @@
     gap: 15px;
   }
   .stream-info h3 {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
   .alternative-links-section {
     flex-direction: column; 

@@ -1,19 +1,16 @@
 /* src/components/ChatBox.css */
 .chatbox-container {
-  width: 350px; /* Lebar chatbox */
+  width: 330px; 
   background-color: var(--card-background);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Penting untuk gulir pesan */
+  overflow: hidden; 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  margin-left: 20px; /* Jarak dari kolom kiri */
+  margin-left: 20px; 
   
-  flex-grow: 1; /* PENTING: Biarkan chatbox meregang secara vertikal */
-  height: auto; /* Pastikan tidak ada tinggi tetap yang menghalangi stretch */
+  height: 600px; /* TINGGI TETAP untuk chatbox */
 }
-
-/* HAPUS SEMUA STYLING COLLAPSE/OPEN/CLOSED jika masih ada */
 
 
 .chatbox-header {
@@ -24,13 +21,34 @@
   color: var(--text-light);
   border-bottom: 1px solid var(--border-color);
   text-align: center;
-  display: block; 
+  display: flex; /* BARU: Agar tombol logout bisa rata kanan */
+  justify-content: space-between; /* BARU: Untuk menata judul dan tombol logout */
+  align-items: center; /* Pusatkan secara vertikal */
 }
 
+.chat-logout-button { /* BARU: Styling untuk tombol Logout */
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-gray);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+}
+
+.chat-logout-button:hover {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    border-color: var(--primary-blue);
+}
+
+
 .chatbox-messages {
-  flex-grow: 1; /* Mengisi ruang yang tersisa */
+  flex-grow: 1; 
   padding: 15px;
-  overflow-y: auto; /* Agar pesan bisa digulir */
+  overflow-y: auto; 
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -61,8 +79,8 @@
     flex-direction: column;
     padding: 20px;
     gap: 15px;
-    flex-grow: 1; /* Mengisi ruang utama saat input username tampil */
-    justify-content: center; /* Pusatkan konten */
+    flex-grow: 1; 
+    justify-content: center; 
     align-items: center;
     text-align: center;
 }
@@ -112,6 +130,7 @@
   border-top: 1px solid var(--border-color);
   padding: 15px;
   gap: 10px;
+  flex-shrink: 0; 
 }
 
 .chatbox-input-form input {
@@ -151,15 +170,15 @@
     width: 100%;
     margin-left: 0;
     margin-top: 20px;
-    order: 2; /* Setelah video frame */
-    height: auto; /* Biarkan flex mengatur */
-    min-height: 350px; /* Minimal tinggi agar tidak terlalu kecil */
+    order: 2; 
+    height: 400px; 
+    min-height: unset; 
   }
 }
 
 @media (max-width: 768px) {
     .chatbox-container {
-        min-height: 300px;
+        height: 350px;
     }
     .chatbox-header {
         font-size: 1rem;
@@ -194,6 +213,6 @@
 }
 @media (max-width: 480px) {
     .chatbox-container {
-        min-height: 250px;
+        height: 300px; 
     }
 }
