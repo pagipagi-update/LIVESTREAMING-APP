@@ -7,7 +7,7 @@ import { FiLink, FiMessageCircle } from 'react-icons/fi';
 import { promoArticles } from '../data/promoData'; 
 import { io } from 'socket.io-client'; 
 
-const OWNCAST_BASE_URL = 'https://stream.ahs.my.id/'; 
+ 
 const SOCKET_SERVER_URL = 'https://chat.ahs.my.id/'; // GANTI INI DENGAN port server.js Anda
 
 // Fungsi pembantu untuk menentukan room ID berdasarkan path

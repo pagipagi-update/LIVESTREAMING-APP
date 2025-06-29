@@ -8,7 +8,7 @@ import { promoArticles } from '../data/promoData';
 import { io } from 'socket.io-client'; 
 import { useParams } from 'react-router-dom'; // Untuk mendapatkan room ID dari URL jika diperlukan
 
-const OWNCAST_BASE_URL = 'https://stream.ahs.my.id/'; 
+ 
 const SOCKET_SERVER_URL = 'https://chat.ahs.my.id'; // GANTI INI DENGAN port server.js Anda
 
 // Fungsi pembantu untuk menentukan room ID berdasarkan path
