@@ -1,5 +1,5 @@
 1. Global & Branding
-Nama Aset: Logo Brand (Contoh: "Bola88 Logo")
+Nama Aset: Logo Brand (Contoh: "Bola88Streaming")
 Contoh Konten: Logo utama website, bisa ikon atau teks bergaya. Saat ini teks, jika ingin gambar.
 Ukuran Rekomendasi: 200x50 piksel (untuk tampilan di header/sidebar, proporsional) atau 500x500 piksel (jika ada versi ikon/persegi).
 Format File: PNG (dengan background transparan)
@@ -13,16 +13,16 @@ Catatan: Harus terlihat jelas dalam ukuran sangat kecil.
 2. Sidebar
 Nama Aset: Sidebar Promotion Banner
 Contoh Konten: Gambar promosi vertikal untuk penawaran khusus, event, dll.
-Ukuran Rekomendasi: 280x400 piksel (lebar maksimal 280px agar pas di sidebar 320px dengan padding)
+Ukuran Rekomendasi: 1080x1080 piksel 
 Format File: JPG / WebP
 Catatan: Sesuaikan rasio aspek dan konten agar mudah dibaca dalam orientasi vertikal.
 
 3. Hero Section (Slider Banner di Homepage)
 Nama Aset: Hero Slider Images (minimal 4 gambar)
-Contoh Konten: Gambar-gambar berkualitas tinggi untuk promosi utama, event besar (FIFA Club, AFF U-23), penawaran spesial.
-Ukuran Rekomendasi: 1920x450 piksel (Rasio sekitar 4.26:1)
+Contoh Konten: Gambar-gambar berkualitas tinggi untuk promosi utama, penawaran spesial.
+Ukuran Rekomendasi: 1920x800 piksel 
 Format File: JPG / WebP
-Catatan: Harus menarik secara visual karena ini adalah daya tarik utama homepage. Optimalisasi ukuran file penting.
+Catatan: Harus menarik secara visual karena ini adalah daya tarik utama homepage.
 
 4. "Live Now" Section (Kartu di Homepage)
 Nama Aset: Live Preview GIF/WebP (4 aset, satu untuk setiap kategori: Sports, Esports, Slots, Togel)
@@ -35,20 +35,8 @@ Ukuran Rekomendasi: 300x170 piksel (sesuai rasio 16:9 dari kartu video)
 Format File: GIF atau WebP (animasi)
 Catatan: Harus berupa animasi pendek yang berulang (looping), tanpa audio, dan berukuran file sekecil mungkin untuk performa. Ini adalah kunci agar kartu terlihat "live".
 
-5. Latest Promos Section (Homepage)
-Nama Aset: Promo Card Images (minimal 2 gambar, untuk cuplikan di homepage)
-Contoh Konten: Gambar visual menarik yang merepresentasikan penawaran promosi (misal: "Bonus 100%", "Cashback 5%").
-Ukuran Rekomendasi: 400x225 piksel (sesuai rasio 16:9)
-Format File: JPG / WebP
-Catatan: Gambar harus jelas meskipun di ukuran kecil.
 
-6. Promo Terbaru Page (Halaman Penuh Promosi)
-Nama Aset: Promo Card Images (sesuai jumlah promosi)
-Contoh Konten: Sama dengan yang di homepage, tapi mungkin dengan fokus detail yang lebih baik karena ini adalah halaman penuh.
-Ukuran Rekomendasi: 400x225 piksel (akan diskalakan oleh CSS)
-Format File: JPG / WebP
-
-7. Live Stream Pages (Sports, Esports, Slots, Togel)
+6. Live Stream Pages (Sports, Esports, Slots, Togel)
 Nama Aset: Streamer Profile Avatars (4 aset, satu untuk setiap kategori)
 Contoh Konten: Gambar profil atau ikon channel yang unik untuk setiap kategori.
 Ukuran Rekomendasi: 50x50 piksel
