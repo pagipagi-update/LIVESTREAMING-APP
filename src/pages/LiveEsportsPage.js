@@ -8,7 +8,7 @@ import { promoArticles } from '../data/promoData';
 import { io } from 'socket.io-client'; 
 
 const OWNCAST_BASE_URL = 'https://stream.ahs.my.id/'; 
-const SOCKET_SERVER_URL = 'http://chat.ahs.my.id/'; // GANTI INI DENGAN port server.js Anda
+const SOCKET_SERVER_URL = 'https://chat.ahs.my.id/'; // GANTI INI DENGAN port server.js Anda
 
 // Fungsi pembantu untuk menentukan room ID berdasarkan path
 const getRoomIdFromPath = (path) => {
@@ -150,7 +150,7 @@ function LiveEsportsPage() {
         <div className="video-player-and-info-frame">
           <div className="video-placeholder"> 
             <iframe
-              src="https://live.faceona.com/?stream=livesports2025" 
+              src="https://live.faceona.com/?stream=esports" 
               title="Owncast Live Esports Stream"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"

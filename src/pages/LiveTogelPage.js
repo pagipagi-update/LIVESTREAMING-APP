@@ -150,7 +150,7 @@ function LiveTogelPage() {
         <div className="video-player-and-info-frame">
           <div className="video-placeholder"> 
             <iframe
-              src={`${OWNCAST_BASE_URL}/embed/video`} 
+              src="https://live.faceona.com/?stream=togel" 
               title="Owncast Live Togel Stream"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"

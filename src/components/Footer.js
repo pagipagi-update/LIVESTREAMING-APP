@@ -31,7 +31,7 @@ function Footer() {
         </div>
       {/* FOOTER BOTTOM: Bagian Hak Cipta, tetap dipertahankan dari kode Anda */}
       <div className="footer-bottom">
-        <p>© 2025 <a href="#">Bola88Stream</a>. All rights reserved.</p>
+        <p>© 2025 <a href="/">Bola88Stream</a>. All rights reserved.</p>
       </div>
     </footer>
   );

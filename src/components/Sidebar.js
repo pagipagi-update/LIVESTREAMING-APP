@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 // Hapus FaTimes dari import
-import { FaFutbol, FaGamepad, FaDice, FaCoins, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaTags } from 'react-icons/fa'; 
+import { FaFutbol, FaGamepad, FaDice, FaCoins, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaTags, FaHouseUser } from 'react-icons/fa'; 
 import './Sidebar.css';
 
 // Sidebar menerima prop isSidebarOpen dan toggleSidebar
@@ -10,7 +10,7 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
   const location = useLocation();
 
   const navigationItems = [
-    { name: 'Home', icon: <FaFutbol />, path: '/' },
+    { name: 'Home', icon: <FaHouseUser/>, path: '/' },
     { name: 'Live Sports', icon: <FaFutbol />, path: '/live-sports' },
     { name: 'Live Esports', icon: <FaGamepad />, path: '/live-esports' },
     { name: 'Live Slots', icon: <FaDice />, path: '/live-slots' },
