@@ -213,7 +213,7 @@ function LiveSportsPage() {
                 <div className="promo-content-below-links">
                   <h5 className="promo-title-below-links">{promo.title}</h5>
                   <p className="promo-excerpt-below-links">{promo.excerpt}</p>
-                  <a href={promo.link} className="promo-button-below-links">Klaim!</a>
+                  <a href="/promo-terbaru" className="promo-button-below-links">Klaim!</a>
                 </div>
               </div>
             ))}
