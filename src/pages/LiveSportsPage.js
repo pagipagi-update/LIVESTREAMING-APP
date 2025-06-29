@@ -159,7 +159,7 @@ function LiveSportsPage() {
           <div className="stream-info">
               <div className="stream-info-header">
                   <img 
-                      src={`${OWNCAST_BASE_URL}/logo`} 
+                      src="https://file.ahs.my.id/-jXka3asjq6" 
                       alt="Profile Avatar"
                       className="streamer-avatar"
                   />

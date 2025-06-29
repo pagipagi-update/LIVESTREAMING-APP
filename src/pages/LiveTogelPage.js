@@ -161,7 +161,7 @@ function LiveTogelPage() {
           <div className="stream-info">
               <div className="stream-info-header">
                   <img 
-                      src={`${OWNCAST_BASE_URL}/logo`} /* Avatar Togel */
+                      src="https://file.ahs.my.id/-jXka3asjq6" /* Avatar Togel */
                       alt="Profile Avatar"
                       className="streamer-avatar"
                   />

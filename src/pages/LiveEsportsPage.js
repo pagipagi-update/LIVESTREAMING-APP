@@ -161,7 +161,7 @@ function LiveEsportsPage() {
           <div className="stream-info">
               <div className="stream-info-header">
                   <img 
-                      src={`${OWNCAST_BASE_URL}/logo`} /* Avatar Esports */
+                      src="https://file.ahs.my.id/-jXka3asjq6" /* Avatar Esports */
                       alt="Profile Avatar"
                       className="streamer-avatar"
                   />
@@ -169,7 +169,7 @@ function LiveEsportsPage() {
                       <h3 className="stream-title-display">
                           Livestreaming Turnamen Esports Hari ini
                       </h3>
-                      <p className="streamer-name">Bola88Streaming E-Sports</p>
+                      <p className="streamer-name">Bola88Stream E-Sports</p>
                   </div>
               </div>
               <p className="stream-description-display">

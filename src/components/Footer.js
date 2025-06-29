@@ -25,13 +25,13 @@ function Footer() {
         </div>
       </div>
     <div class="footer-middle-section">
-        <h2>BOLA88 Live – PLATFORM LIVESTREAM OLAHRAGA 24 JAM</h2>
+        <h2>BOLA88 LIVE – PLATFORM LIVESTREAM OLAHRAGA 24 JAM</h2>
           <p>Bola88 Live adalah platform live streaming online 24 jam yang menayangkan berbagai pertandingan olahraga dunia dengan kualitas HD jernih tanpa buffering. Nikmati siaran langsung sepak bola, basket, MotoGP, dan olahraga lainnya kapan saja dan di mana saja melalui server cepat dan stabil. Bola88 Live menghadirkan pengalaman menonton terbaik dengan akses mudah serta jadwal pertandingan yang selalu update setiap hari. Saksikan semua keseruannya hanya di Bola88 Live, platform livestream andalan para penggemar olahraga di Indonesia.</p>
           <p>Bergabung sekarang dan rasakan serunya menonton pertandingan favoritmu secara live tanpa hambatan. Bola88 Live siap menjadi teman setia kamu untuk menikmati setiap momen olahraga dengan nyaman dan praktis di mana pun kamu berada.</p>
         </div>
       {/* FOOTER BOTTOM: Bagian Hak Cipta, tetap dipertahankan dari kode Anda */}
       <div className="footer-bottom">
-        <p>© 2025 Bola88 Live. All rights reserved.</p>
+        <p>© 2025 <a href="#">Bola88Stream</a>. All rights reserved.</p>
       </div>
     </footer>
   );
