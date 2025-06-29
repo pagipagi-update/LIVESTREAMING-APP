@@ -35,17 +35,6 @@
   align-items: stretch; /* PENTING: Agar tinggi kolom video frame dan chatbox sama */
 }
 
-/* HAPUS INI: Styling main-left-column-content karena div-nya sudah tidak ada di HTML */
-/*
-.main-left-column-content {
-  flex-grow: 1; 
-  min-width: 450px; 
-  max-width: calc(100% - 350px - 30px); 
-  display: flex;
-  flex-direction: column;
-  gap: 20px; 
-}
-*/
 
 /* KOTAK GABUNGAN: Video dan Info (kini anak langsung dari live-content-layout) */
 .video-player-and-info-frame {

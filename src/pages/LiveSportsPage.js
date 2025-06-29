@@ -8,7 +8,7 @@ import { promoArticles } from '../data/promoData';
 import { io } from 'socket.io-client'; 
 import { useParams } from 'react-router-dom'; // Untuk mendapatkan room ID dari URL jika diperlukan
 
-const OWNCAST_BASE_URL = 'https://stream.tivi.ahs.my.id/'; 
+const OWNCAST_BASE_URL = 'https://stream.ahs.my.id/'; 
 const SOCKET_SERVER_URL = 'https://chat.ahs.my.id'; // GANTI INI DENGAN port server.js Anda
 
 // Fungsi pembantu untuk menentukan room ID berdasarkan path
@@ -133,13 +133,13 @@ function LiveSportsPage() {
 
   // ... (Bagian data dan return JSX lainnya tetap sama) ...
   const alternativeLinks = [
-    { text: 'Link Alternatif', icon: <FiLink />, url: 'https://linkalternatif.com', isPrimary: true }, 
-    { text: 'Telegram Bola88', icon: <FaTelegramPlane />, url: 'https://t.me/bola88resmi', isPrimary: false }, 
-    { text: 'Whatsapp Bola88', icon: <FaWhatsapp />, url: 'https://wa.me/628123456789', isPrimary: false }, 
-    { text: 'Livechat Bola88', icon: <FiMessageCircle />, url: 'https://livechat.bola88.com', isPrimary: false }, 
-  ];
+      { text: 'Link Alternatif', icon: <FiLink />, url: 'http://indo.skin/bola88', isPrimary: true, target: '_blank' }, 
+      { text: 'Telegram Bola88', icon: <FaTelegramPlane />, url: 'https://indo.skin/telebola88', isPrimary: false, target: '_blank' }, 
+      { text: 'Whatsapp Bola88', icon: <FaWhatsapp />, url: 'https://indo.skin/whatsappbola88', isPrimary: false, target: '_blank' }, 
+      { text: 'Livechat Bola88', icon: <FiMessageCircle />, url: 'http://indo.skin/livechatbola88', isPrimary: false, target: '_blank' }, 
+    ];
 
-  const streamTags = ['Football', 'Sports', 'Liga Indonesia', 'Live Match', 'English']; 
+  const streamTags = ['Football', 'Sports', 'Liga Indonesia', 'Live Match', 'Streaming Bola', 'Bola88', 'Liga Champions', 'Premier League']; 
   const latestPromos = promoArticles.slice(0, 2);
 
   return (
@@ -159,7 +159,7 @@ function LiveSportsPage() {
           <div className="stream-info">
               <div className="stream-info-header">
                   <img 
-                      src="https://via.placeholder.com/50/1698CE/FFFFFF?text=P" 
+                      src={`${OWNCAST_BASE_URL}/logo`} 
                       alt="Profile Avatar"
                       className="streamer-avatar"
                   />
@@ -167,7 +167,7 @@ function LiveSportsPage() {
                       <h3 className="stream-title-display">
                           Livestreaming Pertandingan Sepak Bola Hari ini
                       </h3>
-                      <p className="streamer-name">Bola88 Official</p>
+                      <p className="streamer-name">Bola88Stream Sports</p>
                   </div>
               </div>
               <p className="stream-description-display">

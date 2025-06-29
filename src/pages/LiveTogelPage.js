@@ -7,7 +7,7 @@ import { FiLink, FiMessageCircle } from 'react-icons/fi';
 import { promoArticles } from '../data/promoData'; 
 import { io } from 'socket.io-client'; 
 
-const OWNCAST_BASE_URL = 'https://stream.tivi.ahs.my.id/'; 
+const OWNCAST_BASE_URL = 'https://stream.ahs.my.id/'; 
 const SOCKET_SERVER_URL = 'https://chat.ahs.my.id'; // GANTI INI DENGAN port server.js Anda
 
 const getRoomIdFromPath = (path) => {
@@ -133,14 +133,14 @@ function LiveTogelPage() {
   }, [chatUsername, roomId]); 
 
   const alternativeLinks = [
-    { text: 'Link Alternatif', icon: <FiLink />, url: 'https://linkalternatif.com', isPrimary: true }, 
-    { text: 'Telegram Bola88', icon: <FaTelegramPlane />, url: 'https://t.me/bola88resmi', isPrimary: false }, 
-    { text: 'Whatsapp Bola88', icon: <FaWhatsapp />, url: 'https://wa.me/628123456789', isPrimary: false }, 
-    { text: 'Livechat Bola88', icon: <FiMessageCircle />, url: 'https://livechat.bola88.com', isPrimary: false }, 
-  ];
+      { text: 'Link Alternatif', icon: <FiLink />, url: 'http://indo.skin/bola88', isPrimary: true, target: '_blank' }, 
+      { text: 'Telegram Bola88', icon: <FaTelegramPlane />, url: 'https://indo.skin/telebola88', isPrimary: false, target: '_blank' }, 
+      { text: 'Whatsapp Bola88', icon: <FaWhatsapp />, url: 'https://indo.skin/whatsappbola88', isPrimary: false, target: '_blank' }, 
+      { text: 'Livechat Bola88', icon: <FiMessageCircle />, url: 'http://indo.skin/livechatbola88', isPrimary: false, target: '_blank' }, 
+    ];
 
   // DATA DUMMY UNTUK TAGS TOGEL
-  const streamTags = ['Togel Online', 'Result', 'HK Pools', 'Singapore', 'Live Draw']; 
+  const streamTags = ['Togel Online', 'Result', 'HK Pools', 'Singapore', 'Live Draw', 'Toto Macau', 'Bola88', 'Togel Hari Ini']; 
 
   const latestPromos = promoArticles.slice(0, 2);
 
@@ -161,7 +161,7 @@ function LiveTogelPage() {
           <div className="stream-info">
               <div className="stream-info-header">
                   <img 
-                      src="https://via.placeholder.com/50/3a3a3a/FFFFFF?text=T" /* Avatar Togel */
+                      src={`${OWNCAST_BASE_URL}/logo`} /* Avatar Togel */
                       alt="Profile Avatar"
                       className="streamer-avatar"
                   />
@@ -169,7 +169,7 @@ function LiveTogelPage() {
                       <h3 className="stream-title-display">
                           Livestreaming Pengundian Togel Hari ini
                       </h3>
-                      <p className="streamer-name">Togel Result Official</p>
+                      <p className="streamer-name">Bola88Stream Togel</p>
                   </div>
               </div>
               <p className="stream-description-display">

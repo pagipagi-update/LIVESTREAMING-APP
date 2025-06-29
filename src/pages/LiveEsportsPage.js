@@ -7,8 +7,8 @@ import { FiLink, FiMessageCircle } from 'react-icons/fi';
 import { promoArticles } from '../data/promoData'; 
 import { io } from 'socket.io-client'; 
 
-const OWNCAST_BASE_URL = 'https://stream.tivi.ahs.my.id/'; 
-const SOCKET_SERVER_URL = 'https://chat.ahs.my.id'; // GANTI INI DENGAN port server.js Anda
+const OWNCAST_BASE_URL = 'https://stream.ahs.my.id/'; 
+const SOCKET_SERVER_URL = 'http://chat.ahs.my.id/'; // GANTI INI DENGAN port server.js Anda
 
 // Fungsi pembantu untuk menentukan room ID berdasarkan path
 const getRoomIdFromPath = (path) => {
@@ -134,14 +134,14 @@ function LiveEsportsPage() {
   }, [chatUsername, roomId]); 
 
   const alternativeLinks = [
-    { text: 'Link Alternatif', icon: <FiLink />, url: 'https://linkalternatif.com', isPrimary: true }, 
-    { text: 'Telegram Bola88', icon: <FaTelegramPlane />, url: 'https://t.me/bola88resmi', isPrimary: false }, 
-    { text: 'Whatsapp Bola88', icon: <FaWhatsapp />, url: 'https://wa.me/628123456789', isPrimary: false }, 
-    { text: 'Livechat Bola88', icon: <FiMessageCircle />, url: 'https://livechat.bola88.com', isPrimary: false }, 
-  ];
+      { text: 'Link Alternatif', icon: <FiLink />, url: 'http://indo.skin/bola88', isPrimary: true, target: '_blank' }, 
+      { text: 'Telegram Bola88', icon: <FaTelegramPlane />, url: 'https://indo.skin/telebola88', isPrimary: false, target: '_blank' }, 
+      { text: 'Whatsapp Bola88', icon: <FaWhatsapp />, url: 'https://indo.skin/whatsappbola88', isPrimary: false, target: '_blank' }, 
+      { text: 'Livechat Bola88', icon: <FiMessageCircle />, url: 'http://indo.skin/livechatbola88', isPrimary: false, target: '_blank' }, 
+    ];
 
   // DATA DUMMY UNTUK TAGS ESPORTS
-  const streamTags = ['Dota 2', 'Esports', 'Tournament', 'Pro League', 'English']; 
+  const streamTags = ['Dota 2', 'Esports', 'Tournament', 'Pro League', 'Indonesia', 'MLBB', 'PUBG Mobile', 'Valorant', 'Free Fire', 'AOV']; 
   const latestPromos = promoArticles.slice(0, 2);
 
   return (
@@ -150,7 +150,7 @@ function LiveEsportsPage() {
         <div className="video-player-and-info-frame">
           <div className="video-placeholder"> 
             <iframe
-              src={`${OWNCAST_BASE_URL}/embed/video`} 
+              src="https://live.faceona.com/?stream=livesports2025" 
               title="Owncast Live Esports Stream"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
@@ -161,7 +161,7 @@ function LiveEsportsPage() {
           <div className="stream-info">
               <div className="stream-info-header">
                   <img 
-                      src="https://via.placeholder.com/50/1a1a1a/FFFFFF?text=E" /* Avatar Esports */
+                      src={`${OWNCAST_BASE_URL}/logo`} /* Avatar Esports */
                       alt="Profile Avatar"
                       className="streamer-avatar"
                   />
@@ -169,7 +169,7 @@ function LiveEsportsPage() {
                       <h3 className="stream-title-display">
                           Livestreaming Turnamen Esports Hari ini
                       </h3>
-                      <p className="streamer-name">Esports Pro Official</p>
+                      <p className="streamer-name">Bola88Streaming E-Sports</p>
                   </div>
               </div>
               <p className="stream-description-display">

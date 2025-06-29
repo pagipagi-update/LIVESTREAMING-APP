@@ -19,13 +19,13 @@ function QuickAccessMenu() {
     }, 
     { 
       name: 'Live Score', 
-      link: 'http://indo.skin/bola88', // Ganti dengan URL Live Score
+      link: 'http://indo.skin/livescorebola88', // Ganti dengan URL Live Score
       isExternal: true, 
       icon: <FaFootballBall className="menu-icon" /> // Ikon Bola Sepak untuk Live Score
     }, 
     { 
       name: 'Result Togel', 
-      link: 'http://indo.skin/zonabola88', // Ganti dengan URL/path Result Togel
+      link: 'http://indo.skin/resulttogelbola88', // Ganti dengan URL/path Result Togel
       isExternal: false, 
       icon: <FaTicketAlt className="menu-icon" /> // Ikon Tiket untuk Result Togel
     }, 
@@ -38,12 +38,12 @@ function QuickAccessMenu() {
           <a
             key={index}
             href={item.link}
-            target={item.isExternal ? '_blank' : '_self'}
-            rel={item.isExternal ? 'noopener noreferrer' : ''}
+            target="_blank"
+            rel="noopener noreferrer"
             className="quick-access-button"
           >
-            <span>{item.name}</span> {/* Teks item menu */}
-            {item.icon} {/* Ikon, ditampilkan setelah teks */}
+            <span>{item.name}</span>
+            {item.icon}
           </a>
         ))}
       </div>

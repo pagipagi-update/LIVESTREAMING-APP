@@ -10,15 +10,21 @@ function PromoPage() {
       <h1 className="page-title">Promo Terbaru</h1>
       <p className="page-description">Jangan lewatkan berbagai penawaran menarik dan bonus spesial dari Bola88!</p>
 
-      <div className="promos-grid-homepage"> {/* Class nama untuk kontainer grid promo (dari LatestPromosHomepage.css) */}
-        {promoArticles.map((promo) => ( 
-          // UBAH INI: Hapus komentar /* ... */ dari baris ini. Atau gunakan { /* ... */ }
-          <div key={promo.id} className="promo-card-homepage"> 
-            <img src={promo.imageUrl} alt={promo.title} className="promo-image-below-links" /> 
-            <div className="promo-content-below-links"> 
+      <div className="promos-grid-homepage">
+        {promoArticles.map((promo) => (
+          <div key={promo.id} className="promo-card-homepage">
+            <img src={promo.imageUrl} alt={promo.title} className="promo-image-below-links" />
+            <div className="promo-content-below-links">
               <h5 className="promo-title-below-links">{promo.title}</h5>
               <p className="promo-excerpt-below-links">{promo.excerpt}</p>
-              <a href="http://indo.skin/bola88" className="promo-button-below-links">Klaim Sekarang! </a> 
+              <a
+                href="http://indo.skin/bola88"
+                className="promo-button-below-links"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Klaim Sekarang!
+              </a>
             </div>
           </div>
         ))}

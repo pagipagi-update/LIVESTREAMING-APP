@@ -9,7 +9,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   margin-left: 20px; 
   
-  height: 600px; /* TINGGI TETAP untuk chatbox */
+  height: 770px; /* TINGGI TETAP untuk chatbox */
 }
 
 
@@ -165,6 +165,19 @@
 }
 
 /* --- Responsive Adjustments --- */
+@media (max-width: 1500px) {
+  .chatbox-container {
+     width: 330px; 
+  background-color: var(--card-background);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px; 
+  
+  height: 600px; /* TINGGI TETAP untuk chatbox */
+  }
+}
+
 @media (max-width: 992px) {
   .chatbox-container {
     width: 100%;
