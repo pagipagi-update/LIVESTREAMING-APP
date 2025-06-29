@@ -142,7 +142,7 @@ function LiveEsportsPage() {
 
   // DATA DUMMY UNTUK TAGS ESPORTS
   const streamTags = ['Dota 2', 'Esports', 'Tournament', 'Pro League', 'Indonesia', 'MLBB', 'PUBG Mobile', 'Valorant', 'Free Fire', 'AOV']; 
-  const latestPromos = promoArticles.slice(0, 2);
+  const latestPromos = promoArticles.slice(2, 4);
 
   return (
     <div className="page-container">

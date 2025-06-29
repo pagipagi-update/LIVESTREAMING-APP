@@ -140,7 +140,7 @@ function LiveSlotsPage() {
   // DATA DUMMY UNTUK TAGS SLOTS
   const streamTags = ['Slots', 'Jackpot', 'Daily Spin', 'Big Win', 'Free Games', 'Bonus', 'Lucky Spin', 'Progressive Jackpot', 'High Roller', 'Olympus Slots']; 
 
-  const latestPromos = promoArticles.slice(0, 2);
+  const latestPromos = promoArticles.slice(3, 5);
 
   return (
     <div className="page-container">

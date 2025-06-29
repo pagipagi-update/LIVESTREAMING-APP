@@ -142,7 +142,7 @@ function LiveTogelPage() {
   // DATA DUMMY UNTUK TAGS TOGEL
   const streamTags = ['Togel Online', 'Result', 'HK Pools', 'Singapore', 'Live Draw', 'Toto Macau', 'Bola88', 'Togel Hari Ini']; 
 
-  const latestPromos = promoArticles.slice(0, 2);
+  const latestPromos = promoArticles.slice(3, 5);
 
   return (
     <div className="page-container">

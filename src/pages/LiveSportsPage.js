@@ -140,7 +140,7 @@ function LiveSportsPage() {
     ];
 
   const streamTags = ['Football', 'Sports', 'Liga Indonesia', 'Live Match', 'Streaming Bola', 'Bola88', 'Liga Champions', 'Premier League']; 
-  const latestPromos = promoArticles.slice(0, 2);
+  const latestPromos = promoArticles.slice(4, 6);
 
   return (
     <div className="page-container">
