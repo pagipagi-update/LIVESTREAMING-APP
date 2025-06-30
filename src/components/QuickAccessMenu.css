@@ -18,7 +18,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 20px;
+  padding: 10px;
   background-color: var(--card-background);
   border-radius: 12px;
   box-shadow: var(--soft-shadow);

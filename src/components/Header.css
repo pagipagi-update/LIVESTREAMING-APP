@@ -6,7 +6,7 @@
   padding: 10px 0; /* Padding horizontal akan diatur oleh main-content-wrapper */
   background-color: var(--sidebar-dark);
   border-bottom: 1px solid var(--border-color);
-  height: 60px;
+  height: 50px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -52,8 +52,8 @@
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 550;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
   white-space: nowrap;

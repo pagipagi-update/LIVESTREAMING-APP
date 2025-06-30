@@ -144,16 +144,16 @@
 /* Bagian Kumpulan Sosial Media */
 .social-media-section {
   border-top: 1px solid var(--border-color);
-  padding-top: 20px;
+  padding-top: 5px;
   margin-top: auto;
   text-align: center;
 }
 
 .social-media-title {
   color: var(--text-gray);
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   text-transform: uppercase;
 }
 

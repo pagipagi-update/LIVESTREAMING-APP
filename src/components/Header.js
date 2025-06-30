@@ -25,7 +25,7 @@ function Header({ toggleSidebar }) {
       {/* Kanan: Tombol Kunjungi Situs Utama */}
       <div className="header-right-button-area">
         <button className="visit-website-button-highlight" onClick={handleVisitWebsite}>
-          Kunjungi Situs Utama
+          Kunjungi Situs
         </button>
       </div>
     </header>

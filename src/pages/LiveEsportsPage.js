@@ -151,10 +151,13 @@ function LiveEsportsPage() {
           <div className="video-placeholder"> 
             <iframe
               src="https://live.faceona.com/?stream=esports" 
-              title="Owncast Live Esports Stream"
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
+              title="Live Esports Stream"
+              style={{
+                width: '100%',
+                aspectRatio: '16 / 9', // 'aspect-ratio' menjadi 'aspectRatio'
+                border: 'none'
+            }}              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
               className="owncast-iframe-player"
             ></iframe>
           </div>

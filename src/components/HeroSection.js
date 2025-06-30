@@ -7,22 +7,22 @@ function HeroSection() {
   // Data untuk setiap slide banner dengan URL yang Anda berikan
   const banners = [
     {
-      imageUrl: 'https://file.ahs.my.id/-mVB4XEnEBC',
+      imageUrl: 'https://file.ahs.my.id/-n52ramDV64',
       altText: 'Promosi FIFA Club 2025 Bola88',
       linkUrl: '/live-sports', // Arahkan ke halaman Live Sports
     },
     {
-      imageUrl: 'https://file.ahs.my.id/-F57N738heV',
+      imageUrl: 'https://file.ahs.my.id/-A8pDKAgrhh/1.jpg',
       altText: 'Event AFF U-23 Championship 2025 Bola88',
       linkUrl: '/live-esports', // Arahkan ke halaman Live Esports
     },
     {
-      imageUrl: 'https://premicloud.net/banner/image/promotion/All%20UBO_Slider.webp',
+      imageUrl: 'https://file.ahs.my.id/-gVh8MUwuLL',
       altText: 'Promosi Umum Bola88',
       linkUrl: '/', // Arahkan ke halaman utama atau halaman promosi umum
     },
     {
-      imageUrl: 'https://premicloud.net/banner/image/promotion/ALLUBO_IDNLottery_Slider1.webp?=v2',
+      imageUrl: 'https://file.ahs.my.id/-WF5RDhbBoF',
       altText: 'Promosi IDNLottery Bola88',
       linkUrl: '/live-togel', // Arahkan ke halaman Live Togel
     },

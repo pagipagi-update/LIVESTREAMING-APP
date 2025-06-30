@@ -58,7 +58,7 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
 
       <div className="sidebar-banner-area">
         <img
-          src="https://file.ahs.my.id/-AboobpmBTQ"
+          src="https://file.ahs.my.id/-86SHWiensv"
           alt="Promotion Banner"
           className="promo-banner"
         />
