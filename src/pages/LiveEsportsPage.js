@@ -150,7 +150,7 @@ function LiveEsportsPage() {
         <div className="video-player-and-info-frame">
           <div className="video-placeholder"> 
             <iframe
-              src="https://live.faceona.com/?stream=esports" 
+              src="https://stream_esport.streamid.app/" 
               title="Live Esports Stream"
               style={{
                 width: '100%',

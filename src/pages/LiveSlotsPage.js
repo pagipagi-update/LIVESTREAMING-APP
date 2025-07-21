@@ -148,7 +148,7 @@ function LiveSlotsPage() {
         <div className="video-player-and-info-frame">
           <div className="video-placeholder"> 
             <iframe
-              src="https://live.faceona.com/?stream=slots" 
+              src="https://stream_slot.streamid.app/" 
               title="Owncast Live Slots Stream"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"

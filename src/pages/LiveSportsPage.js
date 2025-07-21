@@ -148,7 +148,7 @@ function LiveSportsPage() {
         <div className="video-player-and-info-frame">
           <div className="video-placeholder"> 
             <iframe
-              src="https://live.faceona.com/?stream=sports" 
+              src="https://stream_bola.streamid.app/" 
               title="Owncast Live Sports Stream"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
